@@ -1,16 +1,21 @@
 from scapy.all import *
-  ipaddr = "1.2.3.4"
-  for i in range(1, 28):
-      pkt = IP(dst=ipaddr, ttl=i) / UDP(dport=33434)
-      # Send the packet and get a reply
-      reply = sr1(pkt, verbose=0)
-      if reply is None:
-# No reply
-          break
-      elif reply.type == 3:
-          # We've reached our destination
-          print "Done!", reply.src
-          break
-      else:
-           # We're in the middle somewhere
-           print "%d hops away: " % i , reply.src
+
+def tracerout(ipaddr):
+    for i in range (1, 28):
+        pkt = IP(dst = ipaddr, ttl = i) / UDP(dport = 33434)
+        #sends the packet and receives a reply
+        reply = sr1(pkt, verbose = 0, timeout = 1)
+        if reply is None:
+            # No reply
+            print(f"{i} hops away: *")
+        elif reply.type == 3:
+            # We've reached our destination
+            print(f"Done! {reply.src}")
+            break
+        else:
+            # We're in the middle somewhere
+            print(f"{i} hops away: {reply.src}")
+if _name__ == "__main__":
+    target_ip = 10.0.0.0/8 # campus IP
+    tracerout(target_ip)
+
