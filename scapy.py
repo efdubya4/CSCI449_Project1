@@ -17,5 +17,5 @@ def traceroute(ipaddr):
             print(f"{i} hops away: {reply.src}")
 if __name__ == "__main__":
     target_ip = 10.0.0.0/8 # internal campus IP 10.0.0.0/8, public campus IP is 138.238.0.0/16
-    tracerout(target_ip)
+    traceroute(target_ip)
 
