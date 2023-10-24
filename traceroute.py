@@ -1,4 +1,6 @@
 from scapy.all import *
+from pymongo import MongoClient
+
 
 # Define a list of target IP addresses to trace
 target_ips = ["10.0.0.1"]  # Add more IP addresses as needed
@@ -51,3 +53,16 @@ def mongo_client():
 
     return collection
 
+
+if __name__ == "__main":
+    # Run the trace_route function
+    results = trace_route(target_ips, ttl_range, destination_port)
+
+    # Establish a MongoDB connection
+    collection = mongo_client()
+
+    # Insert the traceroute results into MongoDB
+    for result in results:
+        collection.insert_one(result)
+
+    print("Traceroute results inserted into MongoDB.")

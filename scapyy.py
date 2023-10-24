@@ -1,5 +1,6 @@
 from scapy.all import *
 
+
 def traceroute(ipaddr):
     for i in range (1, 28):
         pkt = IP(dst = ipaddr, ttl = i) / UDP(dport = 33434)
