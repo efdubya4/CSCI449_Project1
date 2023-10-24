@@ -1,21 +1,22 @@
-# from scapy.all import *
+from scapy.all import *
 
-# def traceroute(ipaddr):
-#     for i in range (1, 28):
-#         pkt = IP(dst = ipaddr, ttl = i) / UDP(dport = 33434)
-#         #sends the packet and receives a reply
-#         reply = sr1(pkt, verbose = 0, timeout = 1)
-#         if reply is None:
-#             # No reply
-#             print(f"{i} hops away: *")
-#         elif reply.type == 3:
-#             # We've reached our destination
-#             print(f"Done! {reply.src}")
-#             break
-#         else:
-#             # We're in the middle somewhere
-#             print(f"{i} hops away: {reply.src}")
-# if __name__ == "__main__":
-#     target_ip = 10.0.0.0/8 # internal campus IP 10.0.0.0/8, public campus IP is 138.238.0.0/16
-#     traceroute(target_ip)
+
+def traceroute(ipaddr):
+    for i in range (1, 28):
+        pkt = IP(dst = ipaddr, ttl = i) / UDP(dport = 33434)
+        #sends the packet and receives a reply
+        reply = sr1(pkt, verbose = 0, timeout = 1)
+        if reply is None:
+            # No reply
+            print(f"{i} hops away: *")
+        elif reply.type == 3:
+            # We've reached our destination
+            print(f"Done! {reply.src}")
+            break
+        else:
+            # We're in the middle somewhere
+            print(f"{i} hops away: {reply.src}")
+if __name__ == "__main__":
+    target_ip = 10.0.0.0/8 # internal campus IP 10.0.0.0/8, public campus IP is 138.238.0.0/16
+    traceroute(target_ip)
 
