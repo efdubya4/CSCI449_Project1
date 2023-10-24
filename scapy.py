@@ -1,6 +1,6 @@
 from scapy.all import *
 
-def tracerout(ipaddr):
+def traceroute(ipaddr):
     for i in range (1, 28):
         pkt = IP(dst = ipaddr, ttl = i) / UDP(dport = 33434)
         #sends the packet and receives a reply
@@ -15,7 +15,7 @@ def tracerout(ipaddr):
         else:
             # We're in the middle somewhere
             print(f"{i} hops away: {reply.src}")
-if _name__ == "__main__":
-    target_ip = 10.0.0.0/8 # campus IP
-    tracerout(target_ip)
+if __name__ == "__main__":
+    target_ip = 10.0.0.0/8 # internal campus IP 10.0.0.0/8, public campus IP is 138.238.0.0/16
+    traceroute(target_ip)
 
