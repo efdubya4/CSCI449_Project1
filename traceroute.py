@@ -8,24 +8,27 @@ ttl_range = range(1, 28)  # Adjust the TTL range
 destination_port = 33434  # Adjust the destination port if needed
 
 # Function to trace route to a list of target IPs
-def trace_route(target_ips, ttl_range, destination_port):
-    for ipaddr in target_ips:
-        print(f"Tracing route to {ipaddr}:")
 
-        for ttl in ttl_range:
-            pkt = IP(dst=ipaddr, ttl=ttl) / UDP(dport=destination_port)
-            reply = sr1(pkt, verbose=0, timeout=1)  # Adjust the timeout as needed
+"""
+"""
+def traceroute(destination, max_hops=30, dst_port=33434):
+    output = []
+    for ttl in range(1, max_hops + 1):
+        packet = IP(dst=destination, ttl=ttl) / UDP(dport=dst_port)
+        reply = sr1(packet, verbose=0, timeout=1)
 
-            if reply is None:
-                print(f"{ttl} hops away: No reply")
-            elif reply.type == 3:
-                print(f"Done! {ipaddr} reached at {reply.src}")
-                break
-            else:
-                print(f"{ttl} hops away: {reply.src}")
+        if reply is not None:
+            # print(f"{ttl}: {reply.src}")
+            output.append(reply.src)
 
-        print("\n")
+        if reply is not None and reply.src == destination:
+            print(f"Reached destination: {destination}")
+            return output
 
+    # print(f"Destination unreachable within {max_hops} hops: {destination}") 
+    return output
+"""
+"""
 def ip_increment(ip, dif, increments=1):
     # Increment IP Address by dif
 
