@@ -9,21 +9,13 @@ table = dynamodb.create_table(
         {
             'AttributeName': 'ipAddress',
             'AttributeType': 'S'
-        },
-        {
-            'AttributeName': 'edges',
-            'AttributeType': 'S'
         }
     ],
-    TableName='ipAddresses',
+    TableName='ipAddresses_v1',
     KeySchema=[
         {
             'AttributeName': 'ipAddress',
             'KeyType': 'HASH'
-        },
-        {
-            'AttributeName': 'edges',
-            'KeyType': 'RANGE'
         }
     ],
     ProvisionedThroughput={
