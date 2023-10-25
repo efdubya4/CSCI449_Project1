@@ -1,6 +1,13 @@
-from scapy.all import IP, UDP
+import boto3
+from botocore.exceptions import NoCredentialsError
+from scapy.all import IP, UDP, sr1
+from tqdm import tqdm
+import sys
 
-# Function to trace route to a list of target IPs
+# Initialize
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('ipAddresses')
+print(table.creation_date_time)
 
 def traceroute(destination, max_hops=30, dst_port=33434):
     output = []
@@ -43,12 +50,32 @@ def ip_increment(ip, dif, increments=1):
         
     return ip
 
+def multi_traceroute(destination, max_num_of_hops, count):
+    ip = destination
+    with table.batch_writer() as batch: 
+        batch.put_item =  (Item={ 'ipAddress' = "0", "edge" = "test",})
+        # for m in range(count):
+        #     output = traceroute(ip, max_num_of_hops)
+        #     print(output)
+        #     for i, edge in enumerate(output):
+        #         if edge:
+        #             item = {
+        #                 'ip': edge,
+        #                 'edges': []
+        #             }
+        #             print(item)
+        #             if i != 0 and ip_is_valid(output[i - 1]):
+        #                 item['edges'].append(output[i - 1])
+        #             if i != len(output) - 1 and ip_is_valid(output[i + 1]):
+        #                 item['edges'].append(output[i + 1])
+        #             batch.put_item(Item=item)
+        #     ip = ip_increment(ip, 8)
 
-# Run the trace_route function
-trace_route(target_ips, ttl_range, destination_port)
+def ip_is_valid(ip):
+    return ip.startswith(("10.", "138.238.", "66."))
 
-'''
-if __name__ == "__main__":
-    target_ip = "10.0.0.0/8" # campus IP
-    traceroute(target_ip)
-'''
+if __name__ == '__main__':
+    destination = "10.0.0.0/8"
+    max_num_of_hops = 30  
+    count = 328  
+    multi_traceroute(destination, max_num_of_hops, count)
