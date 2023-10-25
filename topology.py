@@ -5,13 +5,13 @@ import matplotlib.pyplot as plt
 G = nx.Graph()
 
 # Add nodes
-G.add_node("Router1")
-G.add_node("Router2")
+G.add_node("10.168.118.249")
+G.add_node("10.126.15.32")
 G.add_node("Host1")
 G.add_node("Host2")
 
 # Add edges
-G.add_edge("Router1", "Host1")
+G.add_edge("10.106.136.245", "Host1")
 G.add_edge("Router1", "Router2")
 G.add_edge("Router2", "Host2")
 
