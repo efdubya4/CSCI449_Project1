@@ -26,11 +26,35 @@ def trace_route(target_ips, ttl_range, destination_port):
 
         print("\n")
 
+def ip_increment(ip, dif, increments=1):
+    # Increment IP Address by dif
+
+    ip = [int(x) for x in ip.split('.')]
+
+    total_ip = ip[3] + ip[2] * 255 + ip[1] * (255 ** 2)
+
+    for i in range(increments):
+        ip[3] += dif
+
+        if ip[3] >= 256:
+            ip[2] += 1
+            ip[3] = ip[3] % 256
+        
+        if ip[2] == 256:
+            ip[1] += 1
+            ip[2] = 0
+
+    ip = [str(x) for x in ip]
+
+    ip = '.'.join(ip)
+        
+    return ip
+
 # Run the trace_route function
 trace_route(target_ips, ttl_range, destination_port)
 
 '''
 if __name__ == "__main__":
     target_ip = "10.0.0.0/8" # campus IP
-    tracerout(target_ip)
+    traceroute(target_ip)
 '''
