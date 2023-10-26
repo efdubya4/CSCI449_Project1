@@ -54,76 +54,72 @@ if __name__ == "__main__":
         },
         {
             "location": "Math Building",
-            "routers": ["Router6", "Router7", "Router8"],
+            "routers": ["10.24.96.1", "10.199.4.73", "10.199.3.1", "66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
         {
             "location": "College of Arts and Science",
-            "routers": ["Router1", "Router2", "Router3"],
+            "routers": ["10.44.96.1", "10.199.4.109", "10.199.3.1", "66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
         {
             "location": "Blackburn Student Center",
-            "routers": ["Router4", "Router5"],
+            "routers": ["10.57.96.1", "10.199.4.137", "10.199.3.1", "66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
         {
             "location": "College of Fine Arts",
-            "routers": ["Router6", "Router7", "Router8"],
+            "routers": ["10.28.96.1", "10.199.4.85", "10.199.3.1", "66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
         {
             "location": "Douglass Hall",
-            "routers": ["Router1", "Router2", "Router3"],
+            "routers": ["10.23.96.1", "10.199.4.69", "*","66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
         {
             "location": "Administration Building",
-            "routers": ["Router4", "Router5"],
+            "routers": ["10.29.96.1", "10.199.4.5", "10.199.3.1", "66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
         {
             "location": "Carnegie Hall",
-            "routers": ["Router6", "Router7", "Router8"],
+            "routers": ["10.82.96.1", "10.199.4.45", "10.199.3.1", "66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
         {
             "location": "Mackey Building",
-            "routers": ["Router1", "Router2", "Router3"],
+            "routers": ["10.53.96.1", "10.199.4.125", "10.199.3.1", "66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
         {
             "location": "School of Social Workl",
-            "routers": ["Router4", "Router5"],
+            "routers": ["10.53.96.1", "10.199.4.125", "10.199.3.1", "66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
         {
             "location": "School of Business",
-            "routers": ["Router6", "Router7", "Router8"],
+            "routers": ["10.30.96.1", "10.199.4.37", "10.199.3.1", "66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
         {
             "location": "Crampton Auditorium",
-            "routers": ["Router4", "Router5"],
+            "routers": ["10.30.96.1", "10.199.4.37", "10.199.3.1", "66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
         {
             "location": "Burr Gymnasium",
-            "routers": ["Router6", "Router7", "Router8"],
-        },
-        {
-            "location": "College of Arts and Science",
-            "routers": ["Router1", "Router2", "Router3"],
+            "routers": ["10.3.96.1", "10.199.4.9", "10.199.3.1", "66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
         {
             "location": "School of Education",
-            "routers": ["Router4", "Router5"],
+            "routers": ["10.40.96.1", "10.199.5.161", "10.199.2.1", "10.199.3.1", "66.44.94.195", "138.238.3.33", "138.238.3.13", "*", "*", "*", "*", "*", "*"],
         },
         {
             "location": "Undergraduate Library",
-            "routers": ["Router6", "Router7", "Router8"],
+            "routers": ["10.41.96.1", "10.199.4.229", "*", "66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
         {
             "location": "MET Building",
-            "routers": ["Router1", "Router2", "Router3"],
+            "routers": ["10.0.0.0", "10.118.96.1", "10.199.6.25", "10.199.3.1", "66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
         {
             "location": "Health Science Library",
-            "routers": ["Router4", "Router5"],
+            "routers": ["10.0.0.0", "10.77.96.1", "10.199.4.24", "10.199.3.1", "66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
         
         {
             "location": "Chemistry Building",
-            "routers": ["Router6", "Router7", "Router8"],
+            "routers": ["10.0.0.0", "10.116.96.1", "10.199.4.225", "10.199.3.1", "66.44.94.195", "138.238.3.33", "138.238.3.13"],
         },
     ]
 
